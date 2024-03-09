@@ -30,16 +30,29 @@ async function getClubRef(name) {
 
     if (clubsSnapshot.docs.length == 1) {
         const clubSnapshot = clubsSnapshot.docs[0]
-        return clubSnapshot.ref // Movie reference
+        return clubSnapshot.ref // club reference
     }
     return null
 }
 
+export async function getClub(name) {
+    const clubsCollection = collection(db, 'clubs');
+    const clubsQuery = query(clubsCollection, where('name', '==', name))
+    const clubsSnapshot = await getDocs(clubsQuery)
+
+    if (clubsSnapshot.docs.length == 1) {
+        const clubSnapshot = clubsSnapshot.docs[0]
+        return clubSnapshot // club snapshot
+    }
+
+    return null;
+}
+
 export async function removeClub(name) {
-    // Conseguir referencia al video juego
+    // Conseguir referencia al club
     const clubRef = await getClubRef(name);
 
-    // Si no es null borrar el juego
+    // Si no es null borrar al club
     if (clubRef) {
         deleteDoc(clubRef)
     }

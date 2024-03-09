@@ -1,10 +1,18 @@
 import { db } from '../firebase'
 import { addDoc, collection, deleteDoc, doc, getDocs, setDoc, query, where } from 'firebase/firestore';
+import { getClub, updateClub } from './club';
 
-export async function createVideoGame({ title, genre, description }) {
+export async function createVideoGame({ title, genre, description, clubName }) {
+    // Crea videjuego y lo añade a firestore
     const videoGamesCollection = collection(db, 'videogames');
     const data = { title, genre, description };
-    await addDoc(videoGamesCollection, data)
+    const videogame = await addDoc(videoGamesCollection, data)
+
+    // añade el id del juego al club
+    const club = await getClub(clubName);
+    const clubData = club.data();
+    clubData.videogames.push(videogame.id)
+    updateClub(club.id, clubData)
 }
 
 export async function updateVideoGame(id, { title, genre, description }) {
@@ -30,7 +38,19 @@ async function getVideoGameRef(title) {
 
     if (videoGamesSnapshot.docs.length == 1) {
         const videoGameSnapshot = videoGamesSnapshot.docs[0]
-        return videoGameSnapshot.ref // Movie reference
+        return videoGameSnapshot.ref // videogame reference
+    }
+    return null
+}
+
+export async function getVideoGame(title) {
+    const videoGamesCollection = collection(db, 'videogames');
+    const videoGamesQuery = query(videoGamesCollection, where('title', '==', title))
+    const videoGamesSnapshot = await getDocs(videoGamesQuery)
+
+    if (videoGamesSnapshot.docs.length == 1) {
+        const videoGameSnapshot = videoGamesSnapshot.docs[0]
+        return videoGameSnapshot // videogame snapshot
     }
     return null
 }
@@ -45,4 +65,4 @@ export async function removeVideoGame(title) {
     }
 }
 
-//TODO - getVideoGameRef(id), removeVideoGame(id), etc
+//TODO - getVideoGameRef(id), removeVideoGame(id), getVideoGame(id) etc
