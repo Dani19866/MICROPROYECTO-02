@@ -3,7 +3,7 @@ import Content from "../components/Content";
 import CardLocal from '../components/CardLocal';
 import { useClubs } from '../hooks/useClubs'
 
-export default function ClubView() {
+export default function ClubsView() {
 
   const {clubs, isLoading} = useClubs()
 
