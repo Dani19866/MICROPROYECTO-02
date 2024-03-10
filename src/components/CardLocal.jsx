@@ -4,7 +4,7 @@ export default function CardLocal(props) {
 
     function cardType() {
         const element = props.element;
-        if (props.type == "club") {
+        if (props.type == "clubs") {
             return (
                 <div>
                     {/* <Space direction="vertical" size={26}> */}
@@ -15,7 +15,7 @@ export default function CardLocal(props) {
                 </div>
             );
         } else {
-            return <club>not club</club>
+            return <div>not found</div>
         }
     }
 
