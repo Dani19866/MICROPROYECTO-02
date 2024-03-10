@@ -1,16 +1,16 @@
 import { db } from '../firebase'
 import { addDoc, collection, deleteDoc, doc, getDocs, setDoc, query, where } from 'firebase/firestore';
 
-export async function createClub({ name, description, videogames }) {
+export async function createClub({ nombre, descripcion, videojuegos }) {
     const clubsCollection = collection(db, 'clubs');
-    const data = { name, description, videogames };
+    const data = { nombre, descripcion, videojuegos };
     await addDoc(clubsCollection, data)
 }
 
-export async function updateClub(id, { name, description, videogames }) {
+export async function updateClub(id, { nombre, descripcion, videojuegos }) {
     const clubsCollection = collection(db, 'clubs');
     const ref = doc(clubsCollection, id)
-    const data = { name, description, videogames };
+    const data = { nombre, descripcion, videojuegos };
     await setDoc(ref, data);
 }
 
@@ -23,9 +23,9 @@ export async function getClubs() {
     return clubs
 }
 
-async function getClubRef(name) {
+async function getClubRef(nombre) {
     const clubsCollection = collection(db, 'clubs');
-    const clubsQuery = query(clubsCollection, where('name', '==', name))
+    const clubsQuery = query(clubsCollection, where('nombre', '==', nombre))
     const clubsSnapshot = await getDocs(clubsQuery)
 
     if (clubsSnapshot.docs.length == 1) {
@@ -35,9 +35,9 @@ async function getClubRef(name) {
     return null
 }
 
-export async function getClub(name) {
+export async function getClub(nombre) {
     const clubsCollection = collection(db, 'clubs');
-    const clubsQuery = query(clubsCollection, where('name', '==', name))
+    const clubsQuery = query(clubsCollection, where('nombre', '==', nombre))
     const clubsSnapshot = await getDocs(clubsQuery)
 
     if (clubsSnapshot.docs.length == 1) {
@@ -48,9 +48,9 @@ export async function getClub(name) {
     return null;
 }
 
-export async function removeClub(name) {
+export async function removeClub(nombre) {
     // Conseguir referencia al club
-    const clubRef = await getClubRef(name);
+    const clubRef = await getClubRef(nombre);
 
     // Si no es null borrar al club
     if (clubRef) {
