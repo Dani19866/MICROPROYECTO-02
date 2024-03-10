@@ -1,3 +1,5 @@
+import { Card } from 'antd'
+
 export default function CardLocal(props) {
 
     function cardType() {
@@ -5,7 +7,11 @@ export default function CardLocal(props) {
         if (props.type == "club") {
             return (
                 <div>
-                    <h1>Club name: {element.name}</h1>
+                    {/* <Space direction="vertical" size={26}> */}
+                    <Card title={element.nombre} extra={<a className='text-primary' href="#">Más</a>}  className="text-center w-80 m-2 bg-secondary" >
+                        <p className='text-justify'>Descripción: {element.descripcion}</p>
+                    </Card>
+                    {/* </Space> */}
                 </div>
             );
         } else {

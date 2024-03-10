@@ -1,9 +1,9 @@
 
 
-export default function Content({children}) {
+export default function Content(props) {
     return (
-        <div className="bg-white border-gray-200 dark:bg-gray-900 shadow-md rounded-md m-2 p-4">
-            {children}
+        <div className={`border-gray-200 dark:bg-gray-900 shadow-md rounded-md p-4 box-border bg-primary ${props.className}`}>
+            {props.children}
         </div>
     );
 }
