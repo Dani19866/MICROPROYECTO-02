@@ -13,7 +13,7 @@ export default function ClubView() {
       <Content>
         <h1>Mis clubs page</h1>
         
-        {isLoading ? <div>Cargando...</div> : clubs.map((club) => <CardLocal key={club.nombre} type="club" element={club} />)}
+        {isLoading ? <div>Cargando...</div> : clubs.map((club) => <CardLocal key={club.nombre + club.id} type="club" element={club} />)}
       </Content>
     </div>
   );
