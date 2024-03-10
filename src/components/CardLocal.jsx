@@ -1,16 +1,16 @@
-export default function Card(props) {
+export default function CardLocal(props) {
 
     function cardType() {
         const element = props.element;
         if (props.type == "club") {
             return (
-            <div>
-                <h1>Club name: {element.name}</h1>
-            </div>
+                <div>
+                    <h1>Club name: {element.name}</h1>
+                </div>
             );
-       } else {
-           return <club>not club</club>
-       }
+        } else {
+            return <club>not club</club>
+        }
     }
 
     return (
