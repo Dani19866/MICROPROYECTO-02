@@ -1,10 +1,13 @@
 import Navbar from "../components/Navbar"
+import Content from "../components/Content";
 
 export default function ClubView() {
   return (
     <div>
       <Navbar />
-      <h2>Club page</h2>
+      <Content>
+        <h1>Mis clubs page</h1>
+      </Content>
     </div>
   );
 }

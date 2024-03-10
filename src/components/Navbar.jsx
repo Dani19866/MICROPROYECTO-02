@@ -5,7 +5,7 @@ import Logo from "../assets/user.png"
 export default function Navbar() {
     return (
         <div>
-            <nav className="bg-white border-gray-200 dark:bg-gray-900 m-2 shadow-md rounded-md">
+            <nav className="bg-white border-gray-200 dark:bg-gray-900 shadow-md rounded-md m-2">
                 <div className="max-w-screen-2xl flex flex-wrap items-center justify-between mx-auto p-4">
 
                     {/* LOGO DE NAVBAR */}

@@ -1,10 +1,13 @@
 import Navbar from "../components/Navbar"
+import Content from "../components/Content";
 
 export default function SearchClubView() {
   return (
     <div>
       <Navbar />
-      <h2>Search club page</h2>
+      <Content>
+        <h1>Search club page</h1>
+      </Content>
     </div>
   );
 }

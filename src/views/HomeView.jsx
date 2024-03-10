@@ -1,10 +1,13 @@
 import Navbar from "../components/Navbar"
+import Content from "../components/Content";
 
 export default function HomeView() {
     return (
         <div>
             <Navbar />
-            <h2>Home view</h2>
+            <Content>
+                <h1>Home page</h1>
+            </Content>
         </div>
     );
 }

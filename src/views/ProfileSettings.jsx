@@ -1,10 +1,13 @@
 import Navbar from "../components/Navbar"
+import Content from "../components/Content";
 
 export default function ProfileView() {
   return (
     <div>
       <Navbar />
-      <h2> Profile settings page </h2>
+      <Content>
+        <h1>Profile settings page</h1>
+      </Content>
     </div>
   );
 }
