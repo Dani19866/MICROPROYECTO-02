@@ -4,7 +4,7 @@ export default function ProfileView() {
   return (
     <div>
       <Navbar />
-      <h2> Profile page </h2>
+      <h2> Profile settings page </h2>
     </div>
   );
 }

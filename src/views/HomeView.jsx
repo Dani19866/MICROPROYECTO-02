@@ -1,5 +1,10 @@
+import Navbar from "../components/Navbar"
+
 export default function HomeView() {
     return (
-        <div>Home page</div>
+        <div>
+            <Navbar />
+            <h2>Home view</h2>
+        </div>
     );
 }
