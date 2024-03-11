@@ -14,7 +14,7 @@ export default function ClubsView() {
       <h1 className="text-center font-bold mt-5 mb-5 text-xl bg-background">Clubs Page</h1>
       <Content className="inline-flex justify-center items-center w-full h-full flex-wrap">
         <div className="w-3/5 m-auto text-center">
-          {isLoading ? <div className=" inline-flex justify-center items-center h-full"><LoadingOutlined className="text-5xl" /></div> : clubs.map((club) => <CardLocal key={club.nombre + club.id} type="clubs" element={club} />)}
+          {isLoading ? <div className="inline-flex justify-center items-center h-full"><LoadingOutlined className="text-5xl" /></div> : clubs.map((club) => <CardLocal key={club.nombre + club.id} type="clubs" element={club} />)}
           {isLoading ? <div className="inline-flex justify-center items-center h-full"></div> : clubs.map((club) => <CardLocal key={club.nombre + club.id} type="clubs" element={club} />)}
           {isLoading ? <div className="inline-flex justify-center items-center h-full"></div> : clubs.map((club) => <CardLocal key={club.nombre + club.id} type="clubs" element={club} />)}
           {isLoading ? <div className="inline-flex justify-center items-center h-full"></div> : clubs.map((club) => <CardLocal key={club.nombre + club.id} type="clubs" element={club} />)}
