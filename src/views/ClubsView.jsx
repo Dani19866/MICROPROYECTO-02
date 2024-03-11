@@ -11,8 +11,6 @@ const { Search } = Input;
 export default function ClubsView() {
 
   const { clubs, isLoading, searchClubs } = useClubs()
-  // const onSearch = (value, _e, info) => console.log(info?.source, value);
-  // const { inputText, setInputText } = useState('')
 
   function handleSearch(input) {
     searchClubs(input)
@@ -29,7 +27,7 @@ export default function ClubsView() {
           enterButton="Buscar"
           size="large"
           onSearch={handleSearch}
-          className={`w-80 bg-primary rounded-md ${styles.search}`}
+          className={`ml-5 w-80 bg-primary rounded-md ${styles.search}`}
         />
       </div>
 
