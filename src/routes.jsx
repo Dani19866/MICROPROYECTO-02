@@ -5,7 +5,6 @@ import RegisterView from "./views/RegisterView";
 import ClubsView from "./views/ClubsView";
 import ProfileView from "./views/ProfileView";
 import ProfileSettingsView from "./views/ProfileSettings";
-import SearchClubView from "./views/SearchClubView";
 import CloseSesionView from "./views/CloseSesionView"
 
 export const router = createBrowserRouter([
@@ -28,10 +27,6 @@ export const router = createBrowserRouter([
     {
         path: "/profile/settings",
         element: <ProfileSettingsView />
-    },
-    {
-        path: "/search",
-        element: <SearchClubView />
     },
     {
         path: "/clubs",
