@@ -6,7 +6,7 @@ export default function HomeView() {
     return (
         <div>
             <Navbar />
-            <Content>
+            <Content className="m-2">
                 <div className="md:w-3/5 md:m-auto">
 
                     <div>
