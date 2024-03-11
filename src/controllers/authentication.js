@@ -1,4 +1,4 @@
-import { onAuthStateChanged, signInWithRedirect, getRedirectResult } from "firebase/auth";
+import { signInWithRedirect, getRedirectResult } from "firebase/auth";
 import { GoogleAuthProvider, GithubAuthProvider } from "firebase/auth";
 import { auth } from "../firebase"
 
@@ -20,30 +20,6 @@ export function googleLogin() {
 
 // TO-DO
 export function githubLogin() {
-    alert("Login with github api")
-}
-
-// Función: Si un usuario NO logeado intenta entrar en a rutas protegidas ---> Redireccionamiento a "login"
-export function observerLogin() {
-    onAuthStateChanged(auth, (user) => {
-        // https://firebase.google.com/docs/reference/js/auth.user
-        if (user) {
-            // ...
-
-        } else {
-            window.location.href = "/login"
-        }
-    })
-}
-
-// Función: Si un usuario ya logeado intenta entrar en las rutas "login" y "register" ---> Redireccionamiento a "home"
-export function observerRegister(){
-    onAuthStateChanged(auth, (user) => {
-        if (user) {
-            window.location.href = "/"
-        } else {
-            // ...
-
-        }
-    })
+    const provider = new GithubAuthProvider();
+    signInWithRedirect(auth, provider);
 }
