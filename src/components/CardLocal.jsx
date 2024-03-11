@@ -7,12 +7,10 @@ export default function CardLocal(props) {
         const element = props.element;
         if (props.type == "clubs") {
             return (
-                <div className="inline-block">
-                    {/* <Space direction="vertical" size={26}> */}
-                    <Card title={element.nombre} extra={<a className='text-primary' href="#">Más<RightOutlined /></a>} className="text-center w-80 m-2 bg-secondary" >
+                <div>
+                    <Card title={element.nombre} extra={<a className='text-primary' href="#">Más<RightOutlined /></a>}  className="text-center w-80 m-2 bg-secondary" >
                         <p className='text-justify'>Descripción: {element.descripcion}</p>
                     </Card>
-                    {/* </Space> */}
                 </div>
             );
         } else {
@@ -21,7 +19,7 @@ export default function CardLocal(props) {
     }
 
     return (
-        <div className="inline-block">
+        <div>
             {cardType()}
         </div>
     );

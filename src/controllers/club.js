@@ -23,6 +23,19 @@ export async function getClubs() {
     return clubs
 }
 
+export async function getClubsByName(nombre) {
+    // db.ref.orderByChild('_searchLastName')
+    // .startAt(queryText)
+    // .endAt(queryText+"\uf8ff")
+    const clubsCollection = collection(db, 'clubs');
+    const clubsQuery = query(clubsCollection, where('nombre', '==', nombre))
+
+    const clubsSnapshot = await getDocs(clubsQuery)
+    const clubs = clubsSnapshot.docs.map((doc) => doc.data())
+
+    return clubs
+}
+
 async function getClubRef(nombre) {
     const clubsCollection = collection(db, 'clubs');
     const clubsQuery = query(clubsCollection, where('nombre', '==', nombre))

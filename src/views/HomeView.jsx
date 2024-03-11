@@ -2,8 +2,6 @@ import Navbar from "../components/Navbar"
 import Presentation from "../components/Presentation";
 import Content from "../components/Content";
 
-import { Carousel } from 'flowbite-react';
-
 export default function HomeView() {
     return (
         <div>
@@ -33,7 +31,10 @@ export default function HomeView() {
                         </div>
 
                         <div>
-                            <Presentation />
+                            <Presentation url="" image="https://elucabista.com/wp-content/uploads/2022/07/IMG_4233.jpg" title="Club de homofóbicos"/>
+                            <Presentation url="" image="https://elucabista.com/wp-content/uploads/2022/07/IMG_4233.jpg" title="Club de racistas"/>
+                            <Presentation url="" image="https://elucabista.com/wp-content/uploads/2022/07/IMG_4233.jpg" title="Club de xenófobos"/>
+                            <Presentation url="" image="https://elucabista.com/wp-content/uploads/2022/07/IMG_4233.jpg" title="Club de chilenos y peruanos (asco)"/>
                         </div>
                     </div>
 
