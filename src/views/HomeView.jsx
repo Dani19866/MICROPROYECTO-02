@@ -1,10 +1,11 @@
 import Navbar from "../components/Navbar"
 import Presentation from "../components/Presentation";
 import Content from "../components/Content";
+import ProtectedView from "../views/ProtectedView"
 
 export default function HomeView() {
     return (
-        <div>
+        <ProtectedView>
             <Navbar />
             <Content className="m-2">
                 <div className="md:w-3/5 md:m-auto">
@@ -47,6 +48,6 @@ export default function HomeView() {
 
                 </div>
             </Content>
-        </div>
+        </ProtectedView>
     );
 }

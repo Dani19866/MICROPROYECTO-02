@@ -12,12 +12,12 @@ export function useClubs() {
     }
 
     useEffect(() => {
-        
+
         cargarDatos()
     }, [])
 
     function addClub(nombre, descripcion) {
-        createClub({ nombre: nombre, descripcion: descripcion, videojuegos: []})
+        createClub({ nombre: nombre, descripcion: descripcion, videojuegos: [] })
         cargarDatos();
     }
 
@@ -31,5 +31,5 @@ export function useClubs() {
 
     const isLoading = clubs === null;
 
-    return {clubs, isLoading, addClub, searchClubs}
+    return { clubs, isLoading, addClub, searchClubs }
 }

@@ -1,6 +1,12 @@
+import { useEffect } from "react";
 import Content from "../components/Content";
+import { observerRegister } from "../controllers/authentication";
 
 export default function RegisterView() {
+    useEffect(() => {
+        observerRegister()
+    }, [])
+
     return (
         <div>
             <Content className="flex justify-center items-center h-screen">
@@ -9,7 +15,7 @@ export default function RegisterView() {
                     {/* Logo */}
                     <div className="absolute p-4">
                         <a href="." className="flex items-center space-x-3 rtl:space-x-reverse">
-                            <img src="https://www.unimet.edu.ve/wp-content/uploads/2023/07/Logo-footer.png" className="h-8" alt="Flowbite Logo" />
+                            <img src="https://www.unimet.edu.ve/wp-content/uploads/2023/07/Logo-footer.png" className="h-8" alt="UNIMET Logo" />
                         </a>
                     </div>
 
