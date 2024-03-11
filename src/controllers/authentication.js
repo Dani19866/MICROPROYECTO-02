@@ -25,13 +25,3 @@ export function googleLogin() {
     const provider = new GoogleAuthProvider();
     signInWithRedirect(auth, provider);
 }
-
-export function userToken() {
-    onAuthStateChanged(auth, (user) => {
-        if (user) {
-            console.log(user);
-            return user
-        } else {
-        }
-    })
-}

@@ -1,24 +1,29 @@
 //import NavbarButton from "./NavbarButton"
 //import NavbarButtonProfile from "./NavbarButtonProfile";
-import { useEffect } from "react";
-import Logo from "../assets/user.png"
+import { useEffect, useState } from "react";
 import { Avatar, Dropdown, Navbar as NavbarFlowbite } from 'flowbite-react';
-import { userToken } from "../controllers/authentication";
+import { onAuthStateChanged } from "firebase/auth";
+import { auth } from "../firebase"
 
 export default function Navbar() {
-    async function profilePhoto() {
-        const user = await userToken()
-        console.log(user);
-    }
+    const [profilePhoto, setprofilePhoto] = useState("")
+    const [displayname, setdisplayname] = useState("")
+    const [email, setemail] = useState("")
 
     useEffect(() => {
-        profilePhoto()
+        onAuthStateChanged(auth, (user) => {
+            if (user) {
+                setdisplayname(user.displayName)
+                setemail(user.email)
+                setprofilePhoto(user.photoURL)
+            }
+        })
     }, [])
 
 
     return (
-        <NavbarFlowbite>
-            <NavbarFlowbite.Brand href="https://www.unimet.edu.ve/wp-content/uploads/2023/07/Logo-footer.png">
+        <NavbarFlowbite className="border-gray-200 dark:bg-gray-900 shadow-md rounded-md m-2">
+            <NavbarFlowbite.Brand href=".">
                 <img src="https://www.unimet.edu.ve/wp-content/uploads/2023/07/Logo-footer.png" className="mr-3 h-6 sm:h-9" alt="Flowbite React Logo" />
             </NavbarFlowbite.Brand>
 
@@ -27,12 +32,12 @@ export default function Navbar() {
                     arrowIcon={true}
                     inline
                     label={
-                        <Avatar alt="User settings" img="" rounded />
+                        <Avatar alt="User settings" img={profilePhoto} rounded />
                     }
                 >
                     <Dropdown.Header>
-                        <span className="block text-sm">Pepito Perez</span>
-                        <span className="block truncate text-sm font-medium">correo@correo.unimet.edu.ve</span>
+                        <span className="block text-sm">{displayname}</span>
+                        <span className="block truncate text-sm font-medium">{email}</span>
                     </Dropdown.Header>
                     <Dropdown.Item href="/profile">Ver perfil</Dropdown.Item>
                     <Dropdown.Item href="/profile/settings">Configuraciones</Dropdown.Item>
