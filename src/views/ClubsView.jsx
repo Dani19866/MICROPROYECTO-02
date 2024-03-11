@@ -4,7 +4,6 @@ import CardLocal from '../components/CardLocal';
 import { useClubs } from '../hooks/useClubs'
 import { LoadingOutlined } from '@ant-design/icons'
 import { Input } from 'antd';
-import styles from './../css/ClubsView.module.css';
 const { Search } = Input;
 
 
@@ -19,15 +18,15 @@ export default function ClubsView() {
   return (
     <div className="m-2">
       <Navbar />
-      <div className={`mt-5 mb-5 ${styles.header}`}>
-        <h1 className={`text-center font-bold  text-xl bg-background ${styles.title}`}>Clubs Page</h1>
+      <div className="mt-5 mb-5">
+        <h1 className="text-center font-bold  text-xl bg-background">Clubs Page</h1>
         <Search
           placeholder="Buscar clubs"
           allowClear
           enterButton="Buscar"
           size="large"
           onSearch={handleSearch}
-          className={`ml-5 w-80 bg-primary rounded-md ${styles.search}`}
+          className="ml-5 w-80 bg-primary rounded-md"
         />
       </div>
 
