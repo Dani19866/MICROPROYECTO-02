@@ -2,7 +2,8 @@ import Content from "../components/Content";
 
 export default function RegisterView() {
     return (
-        <div className="flex justify-center items-center h-screen">
+        <div>
+        <Content className="flex justify-center items-center h-screen">
             <div className="w-[1200px] h-[650px] bg-[#efefef] rounded-lg grid grid-cols-2 relative">
 
                 {/* Logo */}
@@ -109,6 +110,7 @@ export default function RegisterView() {
                     </div>
                 </div>
             </div>
+        </Content>
         </div>
     );
 }
