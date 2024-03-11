@@ -39,16 +39,16 @@ export default function RegisterView() {
 
                     {/* Botones de registro */}
                     <div className="grid grid-cols-2 mt-4">
-                            {/* Google */}
-                            <div className="flex justify-center">
-                                <button type="button" className="text-white bg-blue-600 p-2 w-full">Registrarse con Google</button>
-                            </div>
-
-                            {/* Github */}
-                            <div className="flex justify-center">
-                                <button type="button" className="text-white bg-black p-2 w-full">Registrarse con Github</button>
-                            </div>
+                        {/* Google */}
+                        <div className="flex justify-center">
+                            <button type="button" className="text-white bg-blue-600 p-2 w-full">Registrarse con Google</button>
                         </div>
+
+                        {/* Github */}
+                        <div className="flex justify-center">
+                            <button type="button" className="text-white bg-black p-2 w-full">Registrarse con Github</button>
+                        </div>
+                    </div>
 
                     {/* Form */}
                     <div>
@@ -79,7 +79,6 @@ export default function RegisterView() {
                                     <input className="appearance-none block w-full bg-[#384b92] border-[#384b92] text-white border rounded py-3 px-4 mb-3 leading-tight focus:border-gray-500" id="grid-email" type="text" placeholder="pepito.perez@correo.unimet.edu.ve" />
                                 </div>
                             </div>
-
 
                             {/* Password */}
                             <div className="flex flex-wrap -mx-3">
