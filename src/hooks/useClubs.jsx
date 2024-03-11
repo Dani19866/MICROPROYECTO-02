@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { createClub, getClubs, getClubsByName } from "../controllers/club";
+import { createClub, getClub, getClubWithId, getClubs, getClubsByName } from "../controllers/club";
 
 export function useClubs() {
 
@@ -7,7 +7,7 @@ export function useClubs() {
 
     async function cargarDatos() {
         const data = await getClubs()
-        console.log(data)
+        // console.log(data)
         setClubs(await data)
     }
 
@@ -28,6 +28,8 @@ export function useClubs() {
             cargarDatos()
         }
     }
+
+    
 
     const isLoading = clubs === null;
 
