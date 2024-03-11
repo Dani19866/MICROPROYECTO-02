@@ -1,16 +1,24 @@
-import { signInWithRedirect, getRedirectResult } from "firebase/auth";
-import { GoogleAuthProvider, GithubAuthProvider } from "firebase/auth";
+import { signInWithRedirect, onAuthStateChanged } from "firebase/auth";
+import { GoogleAuthProvider, createUserWithEmailAndPassword } from "firebase/auth";
 import { auth } from "../firebase"
 
 // TO-DO
-export function emailRegister() {
-    alert("Register with email and password")
+export function emailRegister(firstname, lastname, email, password) {
+    createUserWithEmailAndPassword(auth, email, password)
+        .then((userCredential) => {
+            return 0
+
+        })
+        .catch((error) => {
+            return error.code
+            const errorCode = error.code;
+            const errorMessage = error.message;
+        });
 }
 
 // TO-DO
-export function emailLogin(e) {
-    alert("Login with email and password")
-    e.preventDefault()
+export function emailLogin(email, password) {
+
 }
 
 export function googleLogin() {
@@ -18,8 +26,12 @@ export function googleLogin() {
     signInWithRedirect(auth, provider);
 }
 
-// TO-DO
-export function githubLogin() {
-    const provider = new GithubAuthProvider();
-    signInWithRedirect(auth, provider);
+export function userToken() {
+    onAuthStateChanged(auth, (user) => {
+        if (user) {
+            console.log(user);
+            return user
+        } else {
+        }
+    })
 }

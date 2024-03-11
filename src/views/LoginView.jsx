@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import Content from "../components/Content";
-import { emailLogin, githubLogin, googleLogin } from "../controllers/authentication";
+import { emailLogin, googleLogin } from "../controllers/authentication";
 import { onAuthStateChanged } from "firebase/auth";
 import { auth } from "../firebase"
 import Loading from "../components/Loading";
@@ -17,6 +17,10 @@ export default function LoginView() {
             }
         })
     }, [])
+
+    function goRegister() {
+        window.location.href = "/register"
+    }
 
     return (
         <div>
@@ -68,6 +72,14 @@ export default function LoginView() {
                                     <div className="flex justify-center mb-4">
                                         <button onClick={googleLogin} type="button" className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full  px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">INICIAR SESIÓN CON GOOGLE</button>
                                     </div>
+                                </div>
+                            </div>
+
+
+                            {/* Registrarse */}
+                            <div>
+                                <div>
+                                    <p className="font-semibold mb-4">Si no tienes cuenta puedes registrarte <span className="text-blue-500 underline hover:cursor-pointer" onClick={goRegister}>aquí</span></p>
                                 </div>
                             </div>
                         </div>
