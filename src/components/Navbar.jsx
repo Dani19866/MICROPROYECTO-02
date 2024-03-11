@@ -4,22 +4,10 @@ import { useEffect, useState } from "react";
 import { Avatar, Dropdown, Navbar as NavbarFlowbite } from 'flowbite-react';
 import { onAuthStateChanged } from "firebase/auth";
 import { auth } from "../firebase"
+import { useProfileData } from "../hooks/useProfileData";
 
 export default function Navbar() {
-    const [profilePhoto, setprofilePhoto] = useState("")
-    const [displayname, setdisplayname] = useState("")
-    const [email, setemail] = useState("")
-
-    useEffect(() => {
-        onAuthStateChanged(auth, (user) => {
-            if (user) {
-                setdisplayname(user.displayName)
-                setemail(user.email)
-                setprofilePhoto(user.photoURL)
-            }
-        })
-    }, [])
-
+    const { photo, displayname, email } = useProfileData()
 
     return (
         <NavbarFlowbite className="border-gray-200 dark:bg-gray-900 shadow-md rounded-md m-2">
@@ -32,7 +20,7 @@ export default function Navbar() {
                     arrowIcon={true}
                     inline
                     label={
-                        <Avatar alt="User settings" img={profilePhoto} rounded />
+                        <Avatar alt="User settings" img={photo} rounded />
                     }
                 >
                     <Dropdown.Header>
