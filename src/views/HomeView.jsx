@@ -15,10 +15,17 @@ export default function HomeView() {
                         </div>
 
                         <div className="mt-6">
-                            <p>
-                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Iure soluta itaque libero nulla earum? Numquam eveniet ducimus nam sapiente error saepe minima sunt laudantium, porro debitis sed quisquam autem commodi!
-                                Ex, et? Aliquam ipsam earum eos repudiandae nobis qui nulla repellendus error, praesentium ex? Laboriosam magni quibusdam praesentium debitis sequi accusamus delectus commodi soluta dicta excepturi quasi, quod sapiente. Recusandae?
-                                Praesentium modi non accusantium voluptatum, illo, a fuga ad nam ipsa sunt fugiat ratione, unde eius dignissimos error aliquam neque dolorem ullam sint. Natus atque saepe perspiciatis quo blanditiis ad!
+                            <p className="mb-6">
+                                Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ad, cupiditate. Ipsa porro laboriosam voluptatum quidem ipsam ducimus nisi dolorum possimus dicta repellat, fugiat velit odio libero amet, accusamus doloribus doloremque.
+                                Quos, dolor accusamus? Praesentium, porro alias quam incidunt beatae ducimus tempore perferendis recusandae minima dolor voluptatibus doloribus ipsam sequi voluptatem assumenda unde quia reprehenderit laborum eos repellat voluptate. Nobis, quaerat.
+                            </p>
+                            <p className="mb-6">
+                                Quos, dolor accusamus? Praesentium, porro alias quam incidunt beatae ducimus tempore perferendis recusandae minima dolor voluptatibus doloribus ipsam sequi voluptatem assumenda unde quia reprehenderit laborum eos repellat voluptate. Nobis, quaerat.
+                            </p>
+                            <p className="mb-6">
+                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquid impedit magni facere odit praesentium alias atque numquam voluptate libero voluptatum? Possimus dolores at rerum, ut laborum quis nulla quas sit.
+                                Explicabo blanditiis magni at placeat, cupiditate dolorem id quia, praesentium, odio veritatis autem libero nihil odit fugit. Eius culpa, nulla veniam earum a aliquam consequuntur repellendus consequatur nobis consectetur optio?
+                                Quisquam optio sunt recusandae soluta distinctio ad maiores ratione sequi. Aperiam alias quas id non consequatur perferendis nihil, illum ad cum! Veritatis voluptatum blanditiis nihil eveniet iste ipsum. Deleniti, illum.
                             </p>
                         </div>
                     </div>
