@@ -12,7 +12,6 @@ export function useClubs() {
     }
 
     useEffect(() => {
-
         cargarDatos()
     }, [])
 
