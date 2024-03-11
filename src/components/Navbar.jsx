@@ -10,7 +10,7 @@ export default function Navbar() {
 
                     {/* LOGO DE NAVBAR */}
                     <a href="." className="flex items-center space-x-3 rtl:space-x-reverse">
-                        <img src="https://www.unimet.edu.ve/wp-content/uploads/2023/07/Logo-footer.png" className="h-8" alt="Flowbite Logo" />
+                        <img src="https://www.unimet.edu.ve/wp-content/uploads/2023/07/Logo-footer.png" className="h-8" alt="UNIMET Logo" />
                     </a>
 
                     {/* BOTONES DE PERFIL */}
