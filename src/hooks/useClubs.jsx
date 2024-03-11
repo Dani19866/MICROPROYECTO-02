@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { createClub, getClubs } from "../controllers/club";
+import { createClub, getClubs, getClubsByName } from "../controllers/club";
 
 export function useClubs() {
 
@@ -21,7 +21,15 @@ export function useClubs() {
         cargarDatos();
     }
 
+    async function searchClubs(nombre) {
+        if (nombre != "") {
+            setClubs(await getClubsByName(nombre))
+        } else {
+            cargarDatos()
+        }
+    }
+
     const isLoading = clubs === null;
 
-    return {clubs, isLoading, addClub}
+    return {clubs, isLoading, addClub, searchClubs}
 }
