@@ -57,7 +57,7 @@ export default function LoginView() {
                             </div>
 
 
-                            {/* Otras opciones */}
+                            {/* API's de logeo */}
                             <div>
                                 <div>
                                     <p className="font-semibold mb-4">Recuerda que también puedes...</p>
@@ -67,11 +67,6 @@ export default function LoginView() {
                                     {/* Google */}
                                     <div className="flex justify-center mb-4">
                                         <button onClick={googleLogin} type="button" className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full  px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">INICIAR SESIÓN CON GOOGLE</button>
-                                    </div>
-
-                                    {/* Github */}
-                                    <div className="flex justify-center">
-                                        <button onClick={githubLogin} type="button" className="text-white bg-black hover:bg-gray-700 focus:ring-4 focus:outline-none focus:ring-gray-300 font-medium rounded-lg text-sm w-full  px-5 py-2.5 text-center ">INICIAR SESIÓN CON GITHUB</button>
                                     </div>
                                 </div>
                             </div>

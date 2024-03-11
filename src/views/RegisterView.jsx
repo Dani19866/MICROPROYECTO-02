@@ -1,4 +1,6 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
+import { auth } from "../firebase"
+import { onAuthStateChanged } from "firebase/auth";
 import Content from "../components/Content";
 import Loading from "../components/Loading";
 
@@ -53,16 +55,11 @@ export default function RegisterView() {
                                 <h2 className="secundary_color font-bold text-4xl">CREAR UNA CUENTA</h2>
                             </div>
 
-                            {/* Botones de registro */}
-                            <div className="grid grid-cols-2 mt-4">
+                            {/* API's de registro */}
+                            <div className="mt-4">
                                 {/* Google */}
                                 <div className="flex justify-center">
-                                    <button type="button" className="text-white bg-blue-600 p-2 w-full">Registrarse con Google</button>
-                                </div>
-
-                                {/* Github */}
-                                <div className="flex justify-center">
-                                    <button type="button" className="text-white bg-black p-2 w-full">Registrarse con Github</button>
+                                    <button type="button"  className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full  px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Registrarse con Google</button>
                                 </div>
                             </div>
 
