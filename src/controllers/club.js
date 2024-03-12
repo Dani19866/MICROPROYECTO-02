@@ -3,14 +3,17 @@ import { addDoc, collection, deleteDoc, doc, getDocs, setDoc, query, where, getD
 
 export async function createClub({ nombre, descripcion, videojuegos }) {
     const clubsCollection = collection(db, 'clubs');
-    const data = { nombre, descripcion, videojuegos };
-    await addDoc(clubsCollection, data)
+    const clubsSnapshot = await getDocs(clubsCollection);
+    const data = { nombre: nombre, descripcion: descripcion, videojuegos: videojuegos}
+    console.log(clubsSnapshot.size)
+    await setDoc(doc(db, 'clubs', `${clubsSnapshot.size}`), data)
+    // await addDoc(clubsCollection, data)
 }
 
 export async function updateClub(id, { nombre, descripcion, videojuegos }) {
     const clubsCollection = collection(db, 'clubs');
     const ref = doc(clubsCollection, id)
-    const data = { nombre, descripcion, videojuegos };
+    const data = { nombre: nombre, descripcion: descripcion, videojuegos: videojuegos };
     await setDoc(ref, data);
 }
 

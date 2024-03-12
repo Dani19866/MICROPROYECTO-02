@@ -7,7 +7,6 @@ export function useClubs() {
 
     async function cargarDatos() {
         const data = await getClubs()
-        // console.log(data)
         setClubs(await data)
     }
 

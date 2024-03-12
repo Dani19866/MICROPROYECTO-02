@@ -7,6 +7,7 @@ import ProfileView from "./views/ProfileView";
 import ProfileSettingsView from "./views/ProfileSettings";
 import CloseSesionView from "./views/CloseSesionView"
 import ClubDetailView from './views/ClubDetailView';
+import NewClubView from "./views/NewClubView";
 
 export const router = createBrowserRouter([
     {
@@ -36,6 +37,10 @@ export const router = createBrowserRouter([
     {
         path: "/clubs/:id",
         element: <ClubDetailView />
+    },
+    {
+        path: "/newclub",
+        element: <NewClubView />
     },
     {
         path: "/close_sesion",
