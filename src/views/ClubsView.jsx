@@ -4,7 +4,7 @@ import CardLocal from '../components/CardLocal';
 import ProtectedView from "../views/ProtectedView"
 import { useClubs } from '../hooks/useClubs'
 import { LoadingOutlined } from '@ant-design/icons'
-import { Input } from 'antd';
+import { Input, Button } from 'antd';
 const { Search } = Input;
 
 
@@ -21,15 +21,21 @@ export default function ClubsView() {
       <div className="m-2">
         <Navbar />
         <div className="mt-5 mb-5">
-          <h1 className="text-center font-bold  text-xl bg-background">Clubs Page</h1>
+          <h1 className="text-center font-bold  text-xl bg-background mb-1">Clubs Page</h1>
+          <div className="flex justify-between w-full items-center">
           <Search
             placeholder="Buscar clubs"
             allowClear
             enterButton="Buscar"
             size="large"
             onSearch={handleSearch}
-            className="ml-5 w-80 bg-primary rounded-md"
+            className="ml-5 w-80 bg-primary rounded-md mr-1"
+            
           />
+          <Button href="/newclub" className="bg-primary mr-5" type="primary" size='large'>
+            Agregar Club
+          </Button>
+          </div>
         </div>
 
         <Content className="inline-flex justify-center items-center w-full h-full flex-wrap">

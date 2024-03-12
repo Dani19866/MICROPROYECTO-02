@@ -1,16 +1,19 @@
 import { db } from '../firebase'
-import { addDoc, collection, deleteDoc, doc, getDocs, setDoc, query, where } from 'firebase/firestore';
+import { addDoc, collection, deleteDoc, doc, getDocs, setDoc, query, where, getDoc } from 'firebase/firestore';
 
 export async function createClub({ nombre, descripcion, videojuegos }) {
     const clubsCollection = collection(db, 'clubs');
-    const data = { nombre, descripcion, videojuegos };
-    await addDoc(clubsCollection, data)
+    const clubsSnapshot = await getDocs(clubsCollection);
+    const data = { nombre: nombre, descripcion: descripcion, videojuegos: videojuegos}
+    console.log(clubsSnapshot.size)
+    await setDoc(doc(db, 'clubs', `${clubsSnapshot.size}`), data)
+    // await addDoc(clubsCollection, data)
 }
 
 export async function updateClub(id, { nombre, descripcion, videojuegos }) {
     const clubsCollection = collection(db, 'clubs');
     const ref = doc(clubsCollection, id)
-    const data = { nombre, descripcion, videojuegos };
+    const data = { nombre: nombre, descripcion: descripcion, videojuegos: videojuegos };
     await setDoc(ref, data);
 }
 
@@ -18,20 +21,17 @@ export async function getClubs() {
     const clubsCollection = collection(db, 'clubs');
     const clubsSnapshot = await getDocs(clubsCollection);
 
-    const clubs = clubsSnapshot.docs.map((doc) => doc.data())
+    const clubs = clubsSnapshot.docs.map((doc) => doc)
 
     return clubs
 }
 
 export async function getClubsByName(nombre) {
-    // db.ref.orderByChild('_searchLastName')
-    // .startAt(queryText)
-    // .endAt(queryText+"\uf8ff")
     const clubsCollection = collection(db, 'clubs');
     const clubsQuery = query(clubsCollection, where('nombre', '==', nombre))
 
     const clubsSnapshot = await getDocs(clubsQuery)
-    const clubs = clubsSnapshot.docs.map((doc) => doc.data())
+    const clubs = clubsSnapshot.docs.map((doc) => doc)
 
     return clubs
 }
@@ -59,6 +59,13 @@ export async function getClub(nombre) {
     }
 
     return null;
+}
+
+export async function  getClubWithId(id) {
+    const docRef = doc(db, "clubs", id)
+    const docSnap = await getDoc(docRef)
+    console.log(docSnap.data().nombre)
+    return docSnap // club snapshot
 }
 
 export async function removeClub(nombre) {

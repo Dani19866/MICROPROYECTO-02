@@ -1,5 +1,5 @@
 import { db } from '../firebase'
-import { addDoc, collection, deleteDoc, doc, getDocs, setDoc, query, where } from 'firebase/firestore';
+import { addDoc, collection, deleteDoc, doc, getDocs, setDoc, query, where, getDoc } from 'firebase/firestore';
 import { getClub, updateClub } from './club';
 
 export async function createVideoGame({ titulo, genero, descripcion, clubName }) {
@@ -31,6 +31,13 @@ export async function getVideoGames() {
     return videoGames
 }
 
+export async function  getVideoGameWithId(id) {
+    const docRef = doc(db, "videojuegos", id)
+    const docSnap = await getDoc(docRef)
+    // console.log(docSnap.data())
+    return docSnap // club snapshot
+}
+
 async function getVideoGameRef(titulo) {
     const videoGamesCollection = collection(db, 'videojuegos');
     const videoGamesQuery = query(videoGamesCollection, where('titulo', '==', titulo))
@@ -54,6 +61,10 @@ export async function getVideoGame(titulo) {
     }
     return null
 }
+
+// export async function getVideoGamesWithIds(ids) {
+
+// }
 
 export async function removeVideoGame(titulo) {
     // Conseguir referencia al video juego
