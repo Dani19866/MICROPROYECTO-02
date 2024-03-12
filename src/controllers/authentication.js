@@ -1,30 +1,31 @@
-import { signInWithRedirect, onAuthStateChanged } from "firebase/auth";
+import { signInWithRedirect, onAuthStateChanged, signInWithEmailAndPassword } from "firebase/auth";
 import { GoogleAuthProvider, createUserWithEmailAndPassword } from "firebase/auth";
-import { auth } from "../firebase"
+import { addDoc, collection, deleteDoc, doc, getDocs, setDoc, query, where } from 'firebase/firestore';
+import { auth, db } from "../firebase"
 import { useEffect, useState } from "react";
 
-// TO-DO
-export function emailRegister(firstname, lastname, email, password) {
-    createUserWithEmailAndPassword(auth, email, password)
-        .then((userCredential) => {
-            return 0
-
-        })
-        .catch((error) => {
-            return error.code
-            const errorCode = error.code;
-            const errorMessage = error.message;
-        });
-}
-
-// TO-DO
 export function emailLogin(email, password) {
-
+    signInWithEmailAndPassword(auth, email, password)
 }
 
 export function googleLogin() {
     const provider = new GoogleAuthProvider();
     signInWithRedirect(auth, provider);
+}
+
+export async function createUser(firstname, lastname, email, uid) {
+    const usersCollection = collection(db, 'users');
+    const data = {
+        "uid": uid,
+        "nombre": firstname,
+        "apellido": lastname,
+        "email": email,
+
+        "videojuego_preferido": "",
+        "username": "",
+    };
+    await addDoc(usersCollection, data)
+    return true
 }
 
 export function useAuth() {
